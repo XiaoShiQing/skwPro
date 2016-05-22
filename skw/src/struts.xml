@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC   
+     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
+     "http://struts.apache.org/dtds/struts-2.0.dtd">
+     
+     
+<struts>
+    <package name="liu" extends="struts-default">
+        <global-results>
+            <result name="succeed">/common/succeed.jsp</result>
+            <result name="msg">/common/msg.jsp</result>
+        </global-results>
+        
+        <action name="upload" class="com.util.upload" method="upload">
+             <result name="success">/upload/upload_re.jsp</result>
+        </action>
+        
+        <action name="index" class="indexAction" method="index">
+            <result name="success">/qiantai/index.jsp</result>
+        </action>
+        
+        <action name="userReg" class="userAction" method="userReg">
+        </action>
+        <action name="userLogin" class="userAction" method="userLogin">
+        </action>
+        <action name="userLogout" class="userAction" method="userLogout">
+        </action>
+        <action name="userEdit" class="userAction" method="userEdit">
+        </action>
+        <action name="userMana" class="userAction" method="userMana">
+             <result name="success">/admin/user/userMana.jsp</result>
+        </action>
+        <action name="userDel" class="userAction" method="userDel">
+        </action>
+        <action name="userShezhi" class="userAction" method="userShezhi">
+        </action>
+        <action name="userinfo" class="userAction" method="userinfo">
+             <result name="success">/admin/user/userinfo.jsp</result>
+        </action>
+        
+        
+        
+        
+        <action name="goodsAdd" class="goodsAction" method="goodsAdd">
+        </action>
+        <action name="goodsMine" class="goodsAction" method="goodsMine">
+            <result name="success">/admin/goods/goodsMine.jsp</result>
+        </action>
+        <action name="goodsDel" class="goodsAction" method="goodsDel">
+        </action>
+        <action name="goodsMana" class="goodsAction" method="goodsMana">
+            <result name="success">/admin/goods/goodsMana.jsp</result>
+        </action>
+        <action name="goodsDetailHou" class="goodsAction" method="goodsDetailHou">
+            <result name="success">/admin/goods/goodsDetailHou.jsp</result>
+        </action>
+        <action name="goodsAllNoTejia" class="goodsAction" method="goodsAllNoTejia">
+            <result name="success">/qiantai/goods/goodsAllNoTejia.jsp</result>
+        </action>
+        <action name="goodsDetailQian" class="goodsAction" method="goodsDetailQian">
+            <result name="success">/qiantai/goods/goodsDetailQian.jsp</result>
+        </action>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <action name="dianpuReg" class="dianpuAction" method="dianpuReg">
+        </action>
+        <action name="dianpuMana" class="dianpuAction" method="dianpuMana">
+            <result name="success">/admin/dianpu/dianpuMana.jsp</result>
+        </action>
+        <action name="dianpuDel" class="dianpuAction" method="dianpuDel">
+        </action>
+        <action name="dianpuShenhe" class="dianpuAction" method="dianpuShenhe">
+        </action>
+        <action name="dianpuDetailQian" class="dianpuAction" method="dianpuDetailQian">
+            <result name="success">/qiantai/dianpu/dianpuDetailQian.jsp</result>
+        </action>
+        
+        
+        
+        <action name="pingjiaAdd" class="pingjiaAction" method="pingjiaAdd">
+        </action>
+        <action name="pingjiaAll" class="pingjiaAction" method="pingjiaAll">
+            <result name="success">/qiantai/pingjia/pingjiaAll.jsp</result>
+        </action>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <action name="yudingAdd" class="yudingAction" method="yudingAdd">
+        </action>
+        <action name="yudingMine" class="yudingAction" method="yudingMine">
+             <result name="success">/qiantai/yuding/yudingMine.jsp</result>
+        </action>
+        <action name="yudingMana" class="yudingAction" method="yudingMana">
+             <result name="success">/admin/yuding/yudingMana.jsp</result>
+        </action>
+        <action name="yudingDel" class="yudingAction" method="yudingDel">
+        </action>
+    </package>
+</struts>
