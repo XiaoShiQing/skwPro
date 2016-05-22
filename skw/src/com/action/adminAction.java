@@ -34,8 +34,6 @@ public class adminAction extends ActionSupport
 		return "succeed";
 	}
 	
-	
-	
 	public String adminManage()
 	{
 		List adminList=adminDAO.findAll();
