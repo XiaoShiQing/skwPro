@@ -6,9 +6,10 @@
               <param name="beanName" value="loginService"></param>
           </create>
           
-          
+          <!-- 
           <create creator="spring" javascript="cartService">
               <param name="beanName" value="cartService"></param>
           </create>
+           -->
      </allow>
 </dwr>

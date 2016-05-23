@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"  contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -10,6 +10,7 @@ String path = request.getContextPath();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+  	<title>店铺信息</title>
 	<meta http-equiv="pragma" content="no-cache"/>
 	<meta http-equiv="cache-control" content="no-cache"/>
 	<meta http-equiv="expires" content="0"/>    
@@ -75,9 +76,14 @@ String path = request.getContextPath();
 										                     </tr><tr>
 										                  </c:if>
 										                  <td align="center">
-															   <a href="<%=path %>/goodsDetailQian.action?goodsId=${goods.goodsId }">  
+															   <a href="<%=path %>/qiantai/yuding/yudingAdd.jsp?dianpuId=${requestScope.dianpu.id}&&goodsname=${goods.goodsName }">  
 															      <img width="116" height="100" src="<%=path %>/${goods.fujian }" style="border:1px solid #ccc; padding:3px;"/>
 															   </a>
+															   <!-- 
+															   		<a href="<%=path %>/goodsDetailQian.action?goodsId=${goods.goodsId }">  
+															      <img width="116" height="100" src="<%=path %>/${goods.fujian }" style="border:1px solid #ccc; padding:3px;"/>
+															   </a>
+															    -->
 															   <br/>
 										                       ${goods.goodsName }
 										                  </td>

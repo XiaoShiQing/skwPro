@@ -14,7 +14,7 @@
 			value="jdbc:mysql://localhost:3306/db_skw?useUnicode=true&amp;amp;amp;amp;amp;amp;characterEncoding=utf-8">
 		</property>
 		<property name="username" value="root"></property>
-		<property name="password" value="455034880"></property>
+		<property name="password" value=""></property>
 	</bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">

@@ -53,7 +53,7 @@ String path = request.getContextPath();
 					<td bgcolor="#FFFFFF" align="center">${yuding.dianhua}</td>
 					<td bgcolor="#FFFFFF" align="center">${yuding.beizhu}</td>
 					<td bgcolor="#FFFFFF" align="center">
-					   <input type="button" value="删除恶意预约" onclick="yudingDel(${yuding.id})"/>
+					   <input type="button" value="删除预约" onclick="yudingDel(${yuding.id})"/>
 				    </td>
 				</tr>
 				</c:forEach>

@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*"  pageEncoding="UTF-8"  contentType="text/html;charset=utf-8" %>
 <%@ page isELIgnored="false" %>
 <jsp:directive.page import="java.text.SimpleDateFormat"/> 
 
@@ -82,10 +82,10 @@ String path = request.getContextPath();
 						</tr>
 						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 						    <td width="25%" bgcolor="#FFFFFF" align="right">
-						         备注信息：
+						         菜品名称：
 						    </td>
 						    <td width="75%" bgcolor="#FFFFFF" align="left">
-						        <input type="text" name="beizhu" style="width: 200px;"/>
+						        <input type="text" name="beizhu" style="width: 200px;" value="<%=request.getParameter("goodsname") %>"/>
 						    </td>
 						</tr>
 						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">

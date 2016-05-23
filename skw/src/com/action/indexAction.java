@@ -28,9 +28,9 @@ public class indexAction extends ActionSupport
 		
 		String sql="from TGoods where goodsDel='no' and goodsIsnottejia='no' order by goodsId desc";
 		List goodsNoTejiaList=goodsDAO.getHibernateTemplate().find(sql);
-		if(goodsNoTejiaList.size()>9)
+		if(goodsNoTejiaList.size()>12)
 		{
-			goodsNoTejiaList=goodsNoTejiaList.subList(0, 9);
+			goodsNoTejiaList=goodsNoTejiaList.subList(0, 12);
 		}
 		request.put("goodsNoTejiaList", goodsNoTejiaList);
 		

@@ -120,7 +120,7 @@ String path = request.getContextPath();
     <div class="l-b1"></div>
 </div>
 <div id="footer">
-    <p class="copy">版权所有 &copy; 2013-2014</p>
+    <p class="copy">版权所有 &copy; 2015-2016</p>
 </div>
 </body>
 </html>

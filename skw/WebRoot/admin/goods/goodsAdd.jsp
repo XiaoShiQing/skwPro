@@ -24,6 +24,7 @@ String path = request.getContextPath();
 			
 			function up()
 		    {
+				/*弹出插件*/
 		        var pop=new Popup({ contentType:1,isReloadOnClose:false,width:400,height:200});
 	            pop.setContent("contentUrl","<%=path %>/upload/upload.jsp");
 	            pop.setContent("title","文件上传");

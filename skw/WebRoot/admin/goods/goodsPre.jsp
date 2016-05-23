@@ -34,6 +34,7 @@ String path = request.getContextPath();
 		    
 		    function check()
 		    {
+		    	alert("aaaa");
 		        if(document.formAdd.goodsName.value=="")
 		        {
 		            alert("请填写菜品名称");
