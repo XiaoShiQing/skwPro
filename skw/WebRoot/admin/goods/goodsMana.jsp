@@ -34,6 +34,10 @@ String path = request.getContextPath();
                    window.location.href="<%=path %>/goodsDel.action?goodsId="+goodsId;
                }
            }
+
+           function goodsModify(goodsId){
+           		alert("修改商品");
+           }
            
            function over(picPath)
 	       {
@@ -92,6 +96,7 @@ String path = request.getContextPath();
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
 						<input type="button" value="删除" onclick="goodsDel(<s:property value="#goods.goodsId"/>)"/>
+						<input type="button" value="修改" onclick="goodsModify(<s:property value="#goods.goodsId"/>)"/>
 					</td>
 				</tr>
 				</s:iterator>
