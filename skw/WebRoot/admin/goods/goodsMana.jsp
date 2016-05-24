@@ -1,8 +1,8 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="/include/include.jsp"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%
-String path = request.getContextPath();
-%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,6 +16,33 @@ String path = request.getContextPath();
 		<link rel="stylesheet" type="text/css" href="<%=path %>/css/base.css" />
 		<script language="JavaScript" src="<%=path %>/js/public.js" type="text/javascript"></script>
 		<script type="text/javascript" src="<%=path %>/js/popup.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#win").hide();
+				$("#gid").hide();
+			});
+		</script>
+		<script type="text/javascript">
+			function xiugai(){
+				$.post(
+					"<%=path %>/modify.action",
+					{
+						"goodsId":$("#gid").text(),
+						"fujian":$("#goodsimg").val(),
+						"goodsName":$("#goodsname").val(),
+						"goodsShichangjia":$("#goodsprice").val(),
+						"goodsMiaoshu":$("#goodsremark").val(),
+					},
+					function(msg){
+						$("#win").window('close');
+						$.messager.show({
+							title:'提示',
+							msg:msg
+						});
+					}
+				);
+			};
+		</script>
         <script language="javascript">
            function goodsDetailHou(goodsId)
            {
@@ -36,7 +63,26 @@ String path = request.getContextPath();
            }
 
            function goodsModify(goodsId){
-           		alert("修改商品");
+           		// alert("修改商品");
+           		$("#gid").text(goodsId);
+           		$.post("<%=path %>/toModify.action?",{"goodsId":goodsId},
+           				function(msg){
+           					//  alert(msg.tomodifyGood);
+           					var json = JSON.parse(msg);
+           					// alert(json.tomodifyGood.goodsShichangjia);
+           					var g = json.tomodifyGood;
+           					$("#goodsname").val(g.goodsName);
+           					$("#goodsremark").val(g.goodsMiaoshu);
+           					$("#goodsimg").val(g.fujian);
+           					$("#goodsprice").val(g.goodsShichangjia);
+           				}
+           			);
+           		$('#win').window({    
+           			title:'修改商品(gid: '+goodsId+')',
+				    width:600,    
+				    height:400,    
+				    modal:true   
+				}); 
            }
            
            function over(picPath)
@@ -101,7 +147,28 @@ String path = request.getContextPath();
 				</tr>
 				</s:iterator>
 			</table>
-			
+			<div id="win">
+			<span id="gid"></span>
+				<table>
+					<tr>
+						<td>商品名:</td>
+						<td><input id="goodsname"></td>
+					</tr>
+					<tr>
+						<td>介绍:</td>
+						<td><input id="goodsremark"></td>
+					</tr>
+					<tr>
+						<td>图片:</td>
+						<td><input id="goodsimg"></td>
+					</tr>
+					<tr>
+						<td>价格:</td>
+						<td><input id="goodsprice"></td>
+					</tr>
+				</table>
+				<a id="btn_xiugai" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" onClick="xiugai();">修改</a>
+			</div>
 		    <div id="tip" style="position:absolute;display:none;border:0px;width:80px; height:80px;">
 			<TABLE id="tipTable" border="0" bgcolor="#ffffee">
 				<TR align="center">
