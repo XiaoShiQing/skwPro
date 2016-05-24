@@ -84,8 +84,9 @@ String path = request.getContextPath();
 						    <td width="25%" bgcolor="#FFFFFF" align="right">
 						         菜品名称：
 						    </td>
+						    <%String name=new String(request.getParameter("goodsname").getBytes("ISO-8859-1"),"utf-8"); %>
 						    <td width="75%" bgcolor="#FFFFFF" align="left">
-						        <input type="text" name="beizhu" style="width: 200px;" value="<%=request.getParameter("goodsname") %>"/>
+						        <input type="text" name="beizhu" style="width: 200px;" value="<%=name%>"/>
 						    </td>
 						</tr>
 						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">

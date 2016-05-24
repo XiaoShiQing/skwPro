@@ -58,5 +58,7 @@ String path = request.getContextPath();
 				</tr>
 				</c:forEach>
 			</table>
+			<input type="button" align="center"  value="刷新" style="width:100px;height:50px;background:red;color:white;">
+			<a href="javascript:location.reload();"  style="background-color: #F1F8B4; border: 1px solid #ababab; " >刷新</a>
 	</body>
 </html>

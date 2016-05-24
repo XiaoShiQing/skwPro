@@ -56,14 +56,7 @@ String path = request.getContextPath();
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
 				<div id="content">
-					<!-- <div class="post">
-						<h2 class="title"><a href="#">企业介绍</a></h2>
-						<p class="meta">我们企业在青岛市</p>
-						<div class="entry">
-							<p>订单嘎嘎嘎嘎嘎嘎嘎嘎嘎个te designed by FreeCssTemplree template is rse, so you’re prd you keep the links in the footer intact. Aside from that, have fun wi</p>
-							<p>Sibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.</p>
-						</div>
-					</div> -->
+				
 					<div class="post">
 						<!-- <h2 class="title"><a href="#">菜品详细信息</a></h2> -->
 						<div class="entry">

@@ -31,6 +31,14 @@ String path = request.getContextPath();
 				var ret = window.showModalDialog(url,"","dialogWidth:600px; dialogHeight:500px; dialogLeft: status:no; directories:yes;scrollbars:yes;Resizable=no;");
             </c:if>
         } 
+        
+       function yuding(){
+    	    <c:if test="${sessionScope.userType !=2}">
+          	 alert("请先登录");
+          	 return ;
+     		</c:if>
+       }
+        
       </script>
     
   </head>
@@ -69,18 +77,30 @@ String path = request.getContextPath();
 							</fieldset>
 							<br/><br/><br/>
 							<fieldset style="width:99%; margin-left:5px;"><legend class="fieldtitle">菜品展示</legend>
-											<table cellspacing="3" cellpadding="3" align="left">
+											<table cellspacing="3" cellpadding="3" align="left" onclick="yuding()">
 										          <tr>
 										               <c:forEach items="${requestScope.dianpu.goodsList}" var="goods" varStatus="sta">
 										                  <c:if test="${sta.index%4==0}">
 										                     </tr><tr>
 										                  </c:if>
 										                  <td align="center">
+										                  	<c:if test="${sessionScope.userType !=2}">
+										                  		<a href="javascript:void(0);">  
+															      <img width="116" height="100" src="<%=path %>/${goods.fujian }" style="border:1px solid #ccc; padding:3px;"/>
+															   </a>
+										                  	</c:if>
+										                  	<c:if test="${sessionScope.userType ==2}">
 															   <a href="<%=path %>/qiantai/yuding/yudingAdd.jsp?dianpuId=${requestScope.dianpu.id}&&goodsname=${goods.goodsName }">  
 															      <img width="116" height="100" src="<%=path %>/${goods.fujian }" style="border:1px solid #ccc; padding:3px;"/>
 															   </a>
+															  </c:if>
 															   <!-- 
 															   		<a href="<%=path %>/goodsDetailQian.action?goodsId=${goods.goodsId }">  
+															      <img width="116" height="100" src="<%=path %>/${goods.fujian }" style="border:1px solid #ccc; padding:3px;"/>
+															   </a>
+															    -->
+															    <!-- 
+															     <a href="javascript:postwith({"dianpuId",${requestScope.dianpu.id}});">  
 															      <img width="116" height="100" src="<%=path %>/${goods.fujian }" style="border:1px solid #ccc; padding:3px;"/>
 															   </a>
 															    -->

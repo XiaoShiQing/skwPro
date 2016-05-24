@@ -69,7 +69,6 @@ String path = request.getContextPath();
 				    <td width="5%">序号</td>
 					<td width="18%">菜品名称</td>
 					<td width="10%">介绍</td>
-					<td width="10%">图片</td>
 					<td width="10%">价格</td>
 					<td width="10%">操作</td>
 		        </tr>	
@@ -84,11 +83,13 @@ String path = request.getContextPath();
 					<td bgcolor="#FFFFFF" align="center">
 					    <a href="#" onclick="goodsDetailHou(<s:property value="#goods.goodsId"/>)" class="pn-loperator">介绍</a>
 					</td>
+					<!-- 
 					<td bgcolor="#FFFFFF" align="center">
 					   <div onmouseover = "over('<%=path %>/<s:property value="#goods.fujian"/>')" onmouseout = "out()" style="cursor:hand;">
 								查看图片
 					   </div>
 					</td>
+					 -->
 					<td bgcolor="#FFFFFF" align="center">
 					     <s:property value="#goods.goodsShichangjia"/>
 					</td>
