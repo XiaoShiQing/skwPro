@@ -43,6 +43,12 @@
 					}
 				);
 			};
+			
+			/*返回操作*/
+			function back(){
+				$("#win").window('close');
+			}
+			
 		</script>
         <script language="javascript">
            function goodsDetailHou(goodsId)
@@ -161,7 +167,9 @@
 						<td><input id="goodsprice"></td>
 					</tr>
 				</table>
-				<a id="btn_xiugai" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" onClick="xiugai();">修改</a>
+				<br />
+				<a id="btn_xiugai" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" onClick="xiugai();">修改</a>  &nbsp
+				<a id="btn_xiugai" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" onClick="back();">返回</a>
 			</div>
 		    <div id="tip" style="position:absolute;display:none;border:0px;width:80px; height:80px;">
 			<TABLE id="tipTable" border="0" bgcolor="#ffffee">

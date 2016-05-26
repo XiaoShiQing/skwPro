@@ -17,6 +17,13 @@ String path = request.getContextPath();
 		<link rel="stylesheet" type="text/css" href="<%=path %>/css/base.css" />
 		<script language="JavaScript" src="<%=path %>/js/public.js" type="text/javascript"></script>
 		<script type="text/javascript" src="<%=path %>/js/popup.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				alert("aaaa");
+				$("#win").hide();
+				$("#gid").hide();
+			});
+		</script>
         <script language="javascript">
            function goodsDetailHou(goodsId)
            {
@@ -34,6 +41,29 @@ String path = request.getContextPath();
                {
                    window.location.href="<%=path %>/goodsDel.action?goodsId="+goodsId;
                }
+           }
+           
+           function goodsModify(goodsId){
+        	   //alert("进入修改");
+        	   $("#gid").text(goodsId);
+        	   alert("abc111ss");
+        	   $.post("<%=path %>/toModify.action?",{"goodsId":goodsId},
+        			   function(msg){
+        		   			var json = JSON.parse(msg);
+        		   			var g = json.tomodifyGood;
+        		   			$("#goodsname").val(g.goodsName);
+        		   			$("#goodsremark").val(g.goodsMiaoshu);
+           					$("#goodsimg").val(g.fujian);
+           					$("#goodsprice").val(g.goodsShichangjia);
+        	   });
+        	   
+        	   $("#win").Window({
+        		  title:'修改商品(gid:'+goodsId+')',
+        	   	  width:600,
+        	   	  height:400,
+        	   	  modal:true
+        	   });
+        	   
            }
            
            function goodsAdd()
@@ -83,22 +113,37 @@ String path = request.getContextPath();
 					<td bgcolor="#FFFFFF" align="center">
 					    <a href="#" onclick="goodsDetailHou(<s:property value="#goods.goodsId"/>)" class="pn-loperator">介绍</a>
 					</td>
-					<!-- 
-					<td bgcolor="#FFFFFF" align="center">
-					   <div onmouseover = "over('<%=path %>/<s:property value="#goods.fujian"/>')" onmouseout = "out()" style="cursor:hand;">
-								查看图片
-					   </div>
-					</td>
-					 -->
 					<td bgcolor="#FFFFFF" align="center">
 					     <s:property value="#goods.goodsShichangjia"/>
 					</td>
 					<td bgcolor="#FFFFFF" align="center">
 						<input type="button" value="删除" onclick="goodsDel(<s:property value="#goods.goodsId"/>)"/>
+						<input type="button" value="修改" onclick="goodsModify(<s:property value="#goods.goodsId"/>)"/>
 					</td>
 				</tr>
 				</s:iterator>
 			</table>
+			<div id = "win">
+				<span id="gid"></span>
+				<table>
+					<tr>
+						<td>商品名:</td>
+						<td><input id="goodsname"></td>
+					</tr>
+					<tr>
+						<td>介绍:</td>
+						<td><input id="goodsremark"></td>
+					</tr>
+					<tr>
+						<td>图片:</td>
+						<td><input id="goodsimg"></td>
+					</tr>
+					<tr>
+						<td>价格:</td>
+						<td><input id="goodsprice"></td>
+					</tr>
+				</table>
+			</div>
 			
 			<table width='98%'  border='0'style="margin-top:8px;margin-left: 8px;">
 			  <tr>
