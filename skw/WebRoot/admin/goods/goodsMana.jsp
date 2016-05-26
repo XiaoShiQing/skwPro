@@ -42,7 +42,8 @@
 						});
 					}
 				);
-						 f_reload();
+						 // f_reload();
+			  	location.reload();		
 			};
 			
 			/*搜索操作*/
