@@ -19,12 +19,39 @@
 		<script type="text/javascript" src="<%=path %>/js/popup.js"></script>
 		<script type="text/javascript">
 			$(function(){
-				alert("aaaa");
 				$("#win").hide();
 				$("#gid").hide();
 			});
 		</script>
         <script language="javascript">
+        	
+        	function xiugai(){
+        		$.post(
+    					"<%=path %>/modify.action",
+    					{
+    						"goodsId":$("#gid").text(),
+    						"fujian":$("#goodsimg").val(),
+    						"goodsName":$("#goodsname").val(),
+    						"goodsShichangjia":$("#goodsprice").val(),
+    						"goodsMiaoshu":$("#goodsremark").val(),
+    					},
+    					function(msg){
+    						$("#win").window('close');
+    						$.messager.show({
+    							title:'提示',
+    							msg:msg
+    						});
+    					}
+    				);
+    						 // f_reload();
+    			  	//location.reload();
+        	}
+        	
+        	/*返回操作*/
+			function back(){
+				$("#win").window('close');
+			}
+        
            function goodsDetailHou(goodsId)
            {
                  var url="<%=path %>/goodsDetailHou.action?goodsId="+goodsId;
@@ -46,7 +73,6 @@
            function goodsModify(goodsId){
         	   //alert("进入修改");
         	   $("#gid").text(goodsId);
-        	   alert("abc111ss");
         	   $.post("<%=path %>/toModify.action?",{"goodsId":goodsId},
         			   function(msg){
         		   			var json = JSON.parse(msg);
@@ -57,10 +83,10 @@
            					$("#goodsprice").val(g.goodsShichangjia);
         	   });
         	   
-        	   $("#win").Window({
+        	   $("#win").window({
         		  title:'修改商品(gid:'+goodsId+')',
-        	   	  width:600,
-        	   	  height:400,
+        	   	  width:400,
+        	   	  height:250,
         	   	  modal:true
         	   });
         	   
@@ -159,6 +185,9 @@
 						<td><input id="goodsprice"></td>
 					</tr>
 				</table>
+				<br/>
+				<a id="btn_xiugai" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" onClick="xiugai();">修改</a>  &nbsp
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-edit'" onClick="back();">返回</a>
 			</div>
 	</body>
 </html>

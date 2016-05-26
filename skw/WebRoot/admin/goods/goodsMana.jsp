@@ -47,9 +47,17 @@
 			};
 			
 			/*搜索操作*/
-			$("#search").onclick(function(){
-				
-			});
+			function search(){
+				var keyword =  $("#content").val(); 
+				if(keyword.length<=0){
+					alert("请输入内容");
+					return ;					
+				}
+				$.post("<%=path %>/goodsSearch.action",{"keyword":keyword},
+						function(msg){
+							alert(msg+111);
+				});
+			}
 			
 			
 			/*返回操作*/
@@ -94,8 +102,8 @@
            			);
            		$('#win').window({    
            			title:'修改商品(gid: '+goodsId+')',
-				    width:600,    
-				    height:400,    
+				    width:400,    
+				    height:250,    
 				    modal:true   
 				}); 
            }
@@ -120,7 +128,7 @@
 	<body leftmargin="2" topmargin="2" background='<%=path %>/images/allbg.gif'>
 			&nbsp;&nbsp;
 			<input id="content" align="center"  type="text"  placeholder = "请输入想搜索的内容"  value=""/> 
-			<input id="search" align="center" type="button"  value="搜索"/> 
+			<input id="search_btn" align="center" type="button"  value="搜索"  onclick="search()"/> 
 			<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 				<tr bgcolor="#E7E7E7">
 					<td height="14" colspan="9" background="<%=path %>/images/tbg.gif">&nbsp;&nbsp;</td>
@@ -132,7 +140,8 @@
 					<td>介绍</td>
 					<td>价格</td>
 					<td>操作</td>
-		        </tr>	
+		        </tr>
+		        <div id="listData">	
 				<s:iterator value="#request.goodsList" id="goods" status="ss">
 				<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 					<td bgcolor="#FFFFFF" align="center">
@@ -157,6 +166,7 @@
 					</td>
 				</tr>
 				</s:iterator>
+				</div>
 			</table>
 			<div id="win">
 			<span id="gid"></span>

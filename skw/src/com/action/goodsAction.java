@@ -17,6 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import net.sf.json.JSONObject;
 
 public class goodsAction extends ActionSupport {
+	private String keyword;//¹Ø¼ü×Ö
 	private Integer goodsId;
 	private Integer dianpuId;
 	private String goodsName;
@@ -80,6 +81,19 @@ public class goodsAction extends ActionSupport {
 
 		Map request = (Map) ServletActionContext.getContext().get("request");
 		request.put("goodsList", goodsList);
+		return ActionSupport.SUCCESS;
+	}
+	
+	/*Ä£ºýËÑË÷µêÆÌ»ò²ËÃû*/
+	public String goodsSearch(){
+		String sql = "FROM	t_dianpu d	LEFT JOIN t_goods g ON d.id = g.dianpu_id"+
+								" WHERE "+
+								"d.mingcheng LIKE '%"+keyword+"%'"+
+								" OR g.goods_name LIKE '%"+keyword+"%'";
+//		List goodsList = (List)getHibernateTemplate().find(sql);
+		List goodsList = goodsDAO.getHibernateTemplate().find(sql);
+		Map request = (Map) ServletActionContext.getContext().get("request");
+		request.put("search", goodsList);
 		return ActionSupport.SUCCESS;
 	}
 
@@ -158,6 +172,15 @@ public class goodsAction extends ActionSupport {
 		goods.setDianpu(dianpuDAO.findById(goods.getDianpuId()));
 		request.put("goods", goods);
 		return ActionSupport.SUCCESS;
+	}
+
+	
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
 	public Integer getGoodsId() {

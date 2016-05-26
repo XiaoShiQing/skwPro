@@ -43,6 +43,8 @@
 		<action name="goodsMine" class="goodsAction" method="goodsMine">
 			<result name="success">/admin/goods/goodsMine.jsp</result>
 		</action>
+		<action name="goodsSearch" class="goodsAction"  method="goodsSearch">
+		</action>
 		<action name="toModify" class="goodsAction" method="toModify">
 		</action>
 		<action name="modify" class="goodsAction" method="modify">
