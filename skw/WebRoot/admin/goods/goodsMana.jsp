@@ -42,7 +42,14 @@
 						});
 					}
 				);
+						 f_reload();
 			};
+			
+			/*搜索操作*/
+			$("#search").onclick(function(){
+				
+			});
+			
 			
 			/*返回操作*/
 			function back(){
@@ -110,6 +117,9 @@
 	</head>
 
 	<body leftmargin="2" topmargin="2" background='<%=path %>/images/allbg.gif'>
+			&nbsp;&nbsp;
+			<input id="content" align="center"  type="text"  placeholder = "请输入想搜索的内容"  value=""/> 
+			<input id="search" align="center" type="button"  value="搜索"/> 
 			<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 				<tr bgcolor="#E7E7E7">
 					<td height="14" colspan="9" background="<%=path %>/images/tbg.gif">&nbsp;&nbsp;</td>
