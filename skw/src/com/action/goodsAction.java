@@ -84,18 +84,7 @@ public class goodsAction extends ActionSupport {
 		return ActionSupport.SUCCESS;
 	}
 	
-	/*Ä£ºýËÑË÷µêÆÌ»ò²ËÃû*/
-	public String goodsSearch(){
-		String sql = "FROM	t_dianpu d	LEFT JOIN t_goods g ON d.id = g.dianpu_id"+
-								" WHERE "+
-								"d.mingcheng LIKE '%"+keyword+"%'"+
-								" OR g.goods_name LIKE '%"+keyword+"%'";
-//		List goodsList = (List)getHibernateTemplate().find(sql);
-		List goodsList = goodsDAO.getHibernateTemplate().find(sql);
-		Map request = (Map) ServletActionContext.getContext().get("request");
-		request.put("search", goodsList);
-		return ActionSupport.SUCCESS;
-	}
+
 
 	public String goodsDel() {
 		TGoods goods = goodsDAO.findById(goodsId);
@@ -148,6 +137,35 @@ public class goodsAction extends ActionSupport {
 		return ActionSupport.SUCCESS;
 	}
 
+	/*Ä£ºýËÑË÷µêÆÌ»ò²ËÃû*/
+	public String goodsSearch(){
+		String sql = "from TGoods where goodsDel='no' and goodsIsnottejia='no' and "
+				+ "goodsName like '%keyword%' "
+				+ "order by dianpuId";
+		sql = sql.replace("keyword", keyword);
+		List goodsList = goodsDAO.getHibernateTemplate().find(sql);
+		for (Object object : goodsList) {
+			System.out.println(object.toString());
+		}
+		for (int i = 0; i < goodsList.size(); i++) {
+			TGoods goods = (TGoods) goodsList.get(i);
+			goods.setDianpu(dianpuDAO.findById(goods.getDianpuId()));
+		}
+
+		Map request = (Map) ServletActionContext.getContext().get("request");
+		request.put("goodsList", goodsList);
+		return ActionSupport.SUCCESS;
+//		String sql = "FROM	t_dianpu d	LEFT JOIN t_goods g ON d.id = g.dianpu_id"+
+//								" WHERE "+
+//								"d.mingcheng LIKE '%"+keyword+"%'"+
+//								" OR g.goods_name LIKE '%"+keyword+"%'";
+////		List goodsList = (List)getHibernateTemplate().find(sql);
+//		List goodsList = goodsDAO.getHibernateTemplate().find(sql);
+//		Map request = (Map) ServletActionContext.getContext().get("request");
+//		request.put("search", goodsList);
+//		return ActionSupport.SUCCESS;
+	}
+	
 	public String goodsDetailHou() {
 		Map request = (Map) ServletActionContext.getContext().get("request");
 
