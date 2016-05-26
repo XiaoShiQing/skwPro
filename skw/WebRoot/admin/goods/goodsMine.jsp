@@ -1,8 +1,8 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="/include/include.jsp"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%
-String path = request.getContextPath();
-%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -123,7 +123,23 @@ String path = request.getContextPath();
 				</tr>
 				</s:iterator>
 			</table>
-			<div id = "win">
+
+			
+			<table width='98%'  border='0'style="margin-top:8px;margin-left: 8px;">
+			  <tr>
+			    <td>
+			        <input type="button" value="添加菜品" style="width: 120px;" onclick="goodsAdd()" />
+			    </td>
+			  </tr>
+		    </table>
+		    <div id="tip" style="position:absolute;display:none;border:0px;width:80px; height:80px;">
+			<TABLE id="tipTable" border="0" bgcolor="#ffffee">
+				<TR align="center">
+					<TD><img id="photo" src="" height="80" width="80"></TD>
+				</TR>
+			</TABLE>
+		</div>
+					<div id = "win" >
 				<span id="gid"></span>
 				<table>
 					<tr>
@@ -144,20 +160,5 @@ String path = request.getContextPath();
 					</tr>
 				</table>
 			</div>
-			
-			<table width='98%'  border='0'style="margin-top:8px;margin-left: 8px;">
-			  <tr>
-			    <td>
-			        <input type="button" value="添加菜品" style="width: 120px;" onclick="goodsAdd()" />
-			    </td>
-			  </tr>
-		    </table>
-		    <div id="tip" style="position:absolute;display:none;border:0px;width:80px; height:80px;">
-			<TABLE id="tipTable" border="0" bgcolor="#ffffee">
-				<TR align="center">
-					<TD><img id="photo" src="" height="80" width="80"></TD>
-				</TR>
-			</TABLE>
-		</div>
 	</body>
 </html>
